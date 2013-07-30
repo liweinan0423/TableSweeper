@@ -12,6 +12,13 @@
         </file>
     </files>
 
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/src/main/bin/jre</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+    </fileSets>
+
     <dependencySets>
         <dependencySet>
             <scope>compile</scope>
