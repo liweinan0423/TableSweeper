@@ -7,6 +7,8 @@ public class ClientData {
     private String password;
     private String tableName;
     private String frequency;
+    private String ip;
+    private String port;
 
     public ClientData() {
     }
@@ -57,5 +59,21 @@ public class ClientData {
 
     public String getFrequency() {
         return frequency;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(final String ip) {
+        this.ip = ip;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(final String port) {
+        this.port = port;
     }
 }

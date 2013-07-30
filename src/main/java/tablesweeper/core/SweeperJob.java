@@ -25,8 +25,10 @@ public class SweeperJob implements Job {
         JobDataMap dataMap = jobExecutionContext.getJobDetail().getJobDataMap();
         ClientData clientData = (ClientData) dataMap.get("clientData");
 
+        String url = "jdbc:sqlserver://" + clientData.getIp() + ":" + clientData.getPort();
+
         TableSweeper sweeper = new TableSweeper(clientData.getDriver(),
-                clientData.getUrl(),
+                url,
                 clientData.getUsername(),
                 clientData.getPassword());
 

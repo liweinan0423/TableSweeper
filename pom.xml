@@ -6,9 +6,11 @@
 
     <groupId>tablesweeper</groupId>
     <artifactId>tablesweeper</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
-
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+    </properties>
 
     <dependencies>
 
@@ -31,7 +33,15 @@
             <artifactId>sqlserver-driver</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/sqljdbc.jar</systemPath>
+            <systemPath>${project.basedir}/lib/sqljdbc4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.intellij</groupId>
+            <artifactId>ui-designer-core</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ui-designer-core.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -54,4 +64,25 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

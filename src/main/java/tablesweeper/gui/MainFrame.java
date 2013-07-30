@@ -3,6 +3,7 @@ package tablesweeper.gui;
 import tablesweeper.core.TableSweeperManager;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +16,7 @@ import java.awt.event.ActionListener;
  */
 public class MainFrame {
     private JTextField driverField;
-    private JTextField urlField;
+    //    private JTextField urlField;
     private JTextField usernameField;
     private JTextField passwordField;
     private JComboBox frequencyField;
@@ -23,6 +24,8 @@ public class MainFrame {
     private JButton startButton;
     private JButton pauseButton;
     private JPanel panel;
+    private JTextField ipField;
+    private JTextField portField;
 
     public MainFrame() {
         startButton.addActionListener(new ActionListener() {
@@ -31,7 +34,7 @@ public class MainFrame {
                 pauseButton.setEnabled(true);
                 startButton.setEnabled(false);
                 driverField.setEnabled(false);
-                urlField.setEnabled(false);
+//                urlField.setEnabled(false);
                 usernameField.setEnabled(false);
                 passwordField.setEnabled(false);
                 frequencyField.setEnabled(false);
@@ -51,7 +54,7 @@ public class MainFrame {
                 startButton.setEnabled(true);
                 pauseButton.setEnabled(false);
                 driverField.setEnabled(true);
-                urlField.setEnabled(true);
+//                urlField.setEnabled(true);
                 usernameField.setEnabled(true);
                 passwordField.setEnabled(true);
                 frequencyField.setEnabled(true);
@@ -64,36 +67,6 @@ public class MainFrame {
         });
     }
 
-    public void setData(ClientData data) {
-        driverField.setText(data.getDriver());
-        urlField.setText(data.getUrl());
-        usernameField.setText(data.getUsername());
-        passwordField.setText(data.getPassword());
-        tableNameField.setText(data.getTableName());
-    }
-
-    public void getData(ClientData data) {
-        data.setDriver(driverField.getText());
-        data.setUrl(urlField.getText());
-        data.setUsername(usernameField.getText());
-        data.setPassword(passwordField.getText());
-        data.setTableName(tableNameField.getText());
-        data.setFrequency(frequencyField.getSelectedItem().toString());
-    }
-
-    public boolean isModified(ClientData data) {
-        if (driverField.getText() != null ? !driverField.getText().equals(data.getDriver()) : data.getDriver() != null)
-            return true;
-        if (urlField.getText() != null ? !urlField.getText().equals(data.getUrl()) : data.getUrl() != null) return true;
-        if (usernameField.getText() != null ? !usernameField.getText().equals(data.getUsername()) : data.getUsername() != null)
-            return true;
-        if (passwordField.getText() != null ? !passwordField.getText().equals(data.getPassword()) : data.getPassword() != null)
-            return true;
-        if (tableNameField.getText() != null ? !tableNameField.getText().equals(data.getTableName()) : data.getTableName() != null)
-            return true;
-        return false;
-    }
-
     public static void main(String[] args) {
         JFrame frame = new JFrame("MainFrame");
         frame.setContentPane(new MainFrame().panel);
@@ -101,5 +74,136 @@ public class MainFrame {
         frame.pack();
         frame.setResizable(false);
         frame.setVisible(true);
+    }
+
+    public void setData(ClientData data) {
+        driverField.setText(data.getDriver());
+        usernameField.setText(data.getUsername());
+        passwordField.setText(data.getPassword());
+        tableNameField.setText(data.getTableName());
+        ipField.setText(data.getIp());
+        portField.setText(data.getPort());
+    }
+
+    public void getData(ClientData data) {
+        data.setDriver(driverField.getText());
+        data.setUsername(usernameField.getText());
+        data.setPassword(passwordField.getText());
+        data.setTableName(tableNameField.getText());
+        data.setIp(ipField.getText());
+        data.setPort(portField.getText());
+        data.setFrequency(frequencyField.getSelectedItem().toString());
+    }
+
+    public boolean isModified(ClientData data) {
+        if (driverField.getText() != null ? !driverField.getText().equals(data.getDriver()) : data.getDriver() != null)
+            return true;
+        if (usernameField.getText() != null ? !usernameField.getText().equals(data.getUsername()) : data.getUsername() != null)
+            return true;
+        if (passwordField.getText() != null ? !passwordField.getText().equals(data.getPassword()) : data.getPassword() != null)
+            return true;
+        if (tableNameField.getText() != null ? !tableNameField.getText().equals(data.getTableName()) : data.getTableName() != null)
+            return true;
+        if (ipField.getText() != null ? !ipField.getText().equals(data.getIp()) : data.getIp() != null) return true;
+        if (portField.getText() != null ? !portField.getText().equals(data.getPort()) : data.getPort() != null)
+            return true;
+        return false;
+    }
+
+
+    {
+// GUI initializer generated by IntelliJ IDEA GUI Designer
+// >>> IMPORTANT!! <<<
+// DO NOT EDIT OR ADD ANY CODE HERE!
+        $$$setupUI$$$();
+    }
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$() {
+        panel = new JPanel();
+        panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(8, 2, new Insets(10, 10, 10, 10), -1, -1));
+        panel.setEnabled(true);
+        panel.setMaximumSize(new Dimension(239, 225));
+        final JLabel label1 = new JLabel();
+        label1.setText("驱动");
+        panel.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        driverField = new JTextField();
+        driverField.setColumns(100);
+        driverField.setEditable(false);
+        driverField.setEnabled(false);
+        driverField.setRequestFocusEnabled(false);
+        driverField.setText("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        panel.add(driverField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, -1), null, 0, false));
+        final JLabel label2 = new JLabel();
+        label2.setText("用户名");
+        panel.add(label2, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        usernameField = new JTextField();
+        panel.add(usernameField, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        final JLabel label3 = new JLabel();
+        label3.setText("密码");
+        panel.add(label3, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        passwordField = new JTextField();
+        panel.add(passwordField, new com.intellij.uiDesigner.core.GridConstraints(4, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        final JLabel label4 = new JLabel();
+        label4.setText("频率(分钟)");
+        panel.add(label4, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        frequencyField = new JComboBox();
+        frequencyField.setAutoscrolls(false);
+        frequencyField.setEditable(false);
+        final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
+        defaultComboBoxModel1.addElement("5");
+        defaultComboBoxModel1.addElement("10");
+        defaultComboBoxModel1.addElement("15");
+        defaultComboBoxModel1.addElement("20");
+        defaultComboBoxModel1.addElement("25");
+        defaultComboBoxModel1.addElement("30");
+        defaultComboBoxModel1.addElement("35");
+        defaultComboBoxModel1.addElement("40");
+        defaultComboBoxModel1.addElement("45");
+        defaultComboBoxModel1.addElement("50");
+        defaultComboBoxModel1.addElement("55");
+        defaultComboBoxModel1.addElement("60");
+        frequencyField.setModel(defaultComboBoxModel1);
+        panel.add(frequencyField, new com.intellij.uiDesigner.core.GridConstraints(5, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label5 = new JLabel();
+        label5.setText("表名称");
+        panel.add(label5, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        tableNameField = new JTextField();
+        panel.add(tableNameField, new com.intellij.uiDesigner.core.GridConstraints(6, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel.add(panel1, new com.intellij.uiDesigner.core.GridConstraints(7, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        startButton = new JButton();
+        startButton.setLabel("开始");
+        startButton.setText("开始");
+        panel1.add(startButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        pauseButton = new JButton();
+        pauseButton.setEnabled(false);
+        pauseButton.setText("暂停");
+        panel1.add(pauseButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label6 = new JLabel();
+        label6.setText("数据库IP");
+        panel.add(label6, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        ipField = new JTextField();
+        panel.add(ipField, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        final JLabel label7 = new JLabel();
+        label7.setText("端口");
+        panel.add(label7, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        portField = new JTextField();
+        portField.setEditable(true);
+        panel.add(portField, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return panel;
     }
 }

@@ -64,7 +64,7 @@ public class TableSweeperManager {
             Trigger trigger = newTrigger()
                     .withIdentity(triggerKey(TRIGGER_NAME, TRIGGER_GROUP))
                     .withSchedule(simpleSchedule()
-                            .withIntervalInSeconds(frequency)
+                            .withIntervalInMinutes(frequency)
                             .repeatForever())
                     .startAt(DateBuilder.newDate().build())
                     .build();
