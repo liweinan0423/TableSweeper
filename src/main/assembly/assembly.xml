@@ -15,7 +15,7 @@
     <fileSets>
         <fileSet>
             <directory>${project.basedir}/src/main/bin/jre</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>/jre</outputDirectory>
         </fileSet>
     </fileSets>
 
