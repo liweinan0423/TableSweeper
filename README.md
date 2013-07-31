@@ -1,6 +1,7 @@
 TableSweeper
-============
-==Installation
+=
+Installation
+=
 
 mvn clean package
 
