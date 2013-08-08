@@ -28,6 +28,23 @@
             <systemPath>${project.basedir}/lib/ojdbc5.jar</systemPath>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.microsoft</groupId>
+            <artifactId>msbase</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/msbase.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft</groupId>
+            <artifactId>msutil</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/msutil.jar</systemPath>
+        </dependency>
+
         <dependency>
             <groupId>com.microsoft</groupId>
             <artifactId>sqlserver-driver</artifactId>

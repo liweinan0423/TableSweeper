@@ -11,15 +11,7 @@
         <file>
             <source>src/main/bin/startup.bat</source>
         </file>
-        <file>
-            <source>lib/msbase.jar</source>
-            <outputDirectory>/lib</outputDirectory>
-        </file>
-        <file>
-            <source>lib/msutil.jar</source>
-            <outputDirectory>/lib</outputDirectory>
-        </file>
-    </files>      
+    </files>
 
     <fileSets>
         <fileSet>
