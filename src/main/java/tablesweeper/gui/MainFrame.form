@@ -30,7 +30,7 @@
           <editable value="false"/>
           <enabled value="false"/>
           <requestFocusEnabled value="false"/>
-          <text value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+          <text value="com.microsoft.jdbc.sqlserver.SQLServerDriver"/>
         </properties>
       </component>
       <component id="580d7" class="javax.swing.JLabel">
