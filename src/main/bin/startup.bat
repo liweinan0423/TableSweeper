@@ -1,1 +1,1 @@
-jre\bin\java.exe -cp lib\c3p0-0.9.1.1.jar;lib\commons-dbutils-1.5.jar;lib\quartz-2.2.0.jar;lib\slf4j-api-1.7.5.jar;lib\slf4j-simple-1.7.5.jar;lib\sqlserver-driver-1.0.jar;lib\tablesweeper-1.0.jar;lib\ui-designer-core-1.jar tablesweeper.gui.MainFrame
+jre\bin\java.exe -cp lib\msbase.jar;lib\msutil.jar;lib\c3p0-0.9.1.1.jar;lib\commons-dbutils-1.5.jar;lib\quartz-2.2.0.jar;lib\slf4j-api-1.7.5.jar;lib\slf4j-simple-1.7.5.jar;lib\sqlserver-driver-1.0.jar;lib\tablesweeper-1.0.jar;lib\ui-designer-core-1.jar tablesweeper.gui.MainFrame

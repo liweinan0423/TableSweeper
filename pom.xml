@@ -6,7 +6,7 @@
 
     <groupId>tablesweeper</groupId>
     <artifactId>tablesweeper</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <properties>
         <maven.test.skip>true</maven.test.skip>
@@ -33,7 +33,7 @@
             <artifactId>sqlserver-driver</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/sqljdbc4.jar</systemPath>
+            <systemPath>${project.basedir}/lib/mssqlserver.jar</systemPath>
         </dependency>
 
         <dependency>

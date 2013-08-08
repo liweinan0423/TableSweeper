@@ -138,7 +138,7 @@ public class MainFrame {
         driverField.setEditable(false);
         driverField.setEnabled(false);
         driverField.setRequestFocusEnabled(false);
-        driverField.setText("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        driverField.setText("com.microsoft.jdbc.sqlserver.SQLServerDriver");
         panel.add(driverField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, -1), null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setText("用户名");
