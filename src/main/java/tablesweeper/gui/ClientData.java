@@ -9,6 +9,7 @@ public class ClientData {
     private String frequency;
     private String ip;
     private String port;
+    private String databaseName;
 
     public ClientData() {
     }
@@ -75,5 +76,13 @@ public class ClientData {
 
     public void setPort(final String port) {
         this.port = port;
+    }
+
+    public String getDatabaseName() {
+        return databaseName;
+    }
+
+    public void setDatabaseName(final String databaseName) {
+        this.databaseName = databaseName;
     }
 }

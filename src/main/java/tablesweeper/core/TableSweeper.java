@@ -28,18 +28,21 @@ public class TableSweeper {
         this.url = url;
         this.username = username;
         this.password = password;
-
-        DbUtils.loadDriver(this.driverClassName);
     }
 
     public void cleanTable(String tableName) throws SQLException {
+
+        DbUtils.loadDriver(this.driverClassName);
+
         Connection connection = getConnection();
 
         QueryRunner runner = new QueryRunner();
 
         runner.update(connection, "delete from " + tableName);
 
-        DbUtils.commitAndClose(connection);
+        if (!connection.getAutoCommit()) {
+            DbUtils.commitAndClose(connection);
+        }
     }
 
     private Connection getConnection() throws SQLException {
