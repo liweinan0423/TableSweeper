@@ -34,22 +34,24 @@ public class MainFrame {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pauseButton.setEnabled(true);
-                startButton.setEnabled(false);
-                driverField.setEnabled(false);
-//                urlField.setEnabled(false);
-                usernameField.setEnabled(false);
-                passwordField.setEnabled(false);
-                frequencyField.setEnabled(false);
-                tableNameField.setEnabled(false);
-                ipField.setEnabled(false);
-                portField.setEnabled(false);
-                databaseNameField.setEnabled(false);
-                TableSweeperManager manager = TableSweeperManager.getInstance();
-                ClientData clientData = new ClientData();
-                getData(clientData);
-                manager.setClientData(clientData);
-                manager.startSweeperJob(Integer.valueOf(clientData.getFrequency()));
+                if (JOptionPane.showConfirmDialog(MainFrame.this.panel, "该操作会清空目标表中的所有数据，并且不可恢复，是否确认?", "警告", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    pauseButton.setEnabled(true);
+                    startButton.setEnabled(false);
+                    driverField.setEnabled(false);
+                    //                urlField.setEnabled(false);
+                    usernameField.setEnabled(false);
+                    passwordField.setEnabled(false);
+                    frequencyField.setEnabled(false);
+                    tableNameField.setEnabled(false);
+                    ipField.setEnabled(false);
+                    portField.setEnabled(false);
+                    databaseNameField.setEnabled(false);
+                    TableSweeperManager manager = TableSweeperManager.getInstance();
+                    ClientData clientData = new ClientData();
+                    getData(clientData);
+                    manager.setClientData(clientData);
+                    manager.startSweeperJob(Integer.valueOf(clientData.getFrequency()));
+                }
             }
         });
         pauseButton.addActionListener(new ActionListener() {
@@ -159,7 +161,7 @@ public class MainFrame {
         final JLabel label3 = new JLabel();
         label3.setText("密码");
         panel.add(label3, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        passwordField = new JTextField();
+        passwordField = new JPasswordField();
         panel.add(passwordField, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JLabel label4 = new JLabel();
         label4.setText("频率(分钟)");
