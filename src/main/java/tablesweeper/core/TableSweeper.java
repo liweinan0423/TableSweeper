@@ -38,7 +38,13 @@ public class TableSweeper {
 
         QueryRunner runner = new QueryRunner();
 
-        runner.update(connection, "delete from " + tableName);
+        String[] tableNames = tableName.split(" ");
+
+        for (String name : tableNames) {
+            if (name != null && !"".equals(name)) {
+                runner.update(connection, "delete from " + name);
+            }
+        }
 
         if (!connection.getAutoCommit()) {
             DbUtils.commitAndClose(connection);
