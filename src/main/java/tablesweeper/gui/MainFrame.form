@@ -73,7 +73,7 @@
           <text value="频率(分钟)"/>
         </properties>
       </component>
-      <component id="7baa6" class="javax.swing.JComboBox" binding="frequencyField">
+      <component id="7baa6" class="javax.swing.JComboBox" binding="frequencyField" custom-create="true">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -88,13 +88,14 @@
           </model>
         </properties>
       </component>
-      <component id="2b5c5" class="javax.swing.JTextField" binding="tableNameField">
+      <component id="59049" class="javax.swing.JTextArea" binding="tableNameField">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="22"/>
           </grid>
         </constraints>
         <properties>
+          <lineWrap value="true"/>
           <text value=""/>
         </properties>
       </component>
