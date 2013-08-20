@@ -97,7 +97,41 @@ public class TableSweeperTest {
     public void test_sweep_multiple_tables() throws SQLException {
         TableSweeper sweeper = new TableSweeper(DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
         sweeper.cleanTable(TABLE_NAME + " " + TABLE_NAME_1);
-        sweeper.cleanTable(TABLE_NAME + "    " + TABLE_NAME_1);   //test multiple spaces
+
+
+        QueryRunner runner = new QueryRunner();
+
+        Connection connection = getConnection();
+
+        Integer result = runner.query(connection, "select count(*) from test", new ResultSetHandler<Integer>() {
+            @Override
+            public Integer handle(ResultSet rs) throws SQLException {
+                rs.next();
+                Integer result = rs.getInt(1);
+                return result;
+            }
+        });
+
+        Integer result1 = runner.query(connection, "select count(*) from test1", new ResultSetHandler<Integer>() {
+            @Override
+            public Integer handle(ResultSet rs) throws SQLException {
+                rs.next();
+                Integer result = rs.getInt(1);
+                return result;
+            }
+        });
+
+        assertEquals(0, result.intValue());
+        assertEquals(0, result1.intValue());
+
+        DbUtils.closeQuietly(connection);
+
+    }
+
+    @Test
+    public void test_sweep_multiple_tables_with_multiple_spaces() throws SQLException {
+        TableSweeper sweeper = new TableSweeper(DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
+        sweeper.cleanTable(TABLE_NAME + "    " + TABLE_NAME_1);
 
 
         QueryRunner runner = new QueryRunner();
