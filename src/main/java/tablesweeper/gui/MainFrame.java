@@ -126,7 +126,7 @@ public class MainFrame {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        frequencyField = new JComboBox(new Integer[]{5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60});
+        frequencyField = new JComboBox(new Integer[]{1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60});
     }
 
     /**
@@ -166,7 +166,7 @@ public class MainFrame {
         label4.setText("频率(分钟)");
         panel.add(label4, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         frequencyField.setAutoscrolls(false);
-        frequencyField.setEditable(false);
+        frequencyField.setEditable(true);
         panel.add(frequencyField, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tableNameField = new JTextArea();
         tableNameField.setLineWrap(true);

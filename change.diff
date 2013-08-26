@@ -1,0 +1,66 @@
+diff --git a/pom.xml b/pom.xml
+index a1d6297..4b06e2a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -6,7 +6,7 @@
+ 
+     <groupId>tablesweeper</groupId>
+     <artifactId>tablesweeper</artifactId>
+-    <version>1.1.2</version>
++    <version>1.1.3</version>
+ 
+     <properties>
+         <maven.test.skip>true</maven.test.skip>
+diff --git a/src/main/bin/startup.bat b/src/main/bin/startup.bat
+index 33456cb..3b4bdc7 100644
+--- a/src/main/bin/startup.bat
++++ b/src/main/bin/startup.bat
+@@ -1 +1 @@
+-jre\bin\java.exe -cp ;lib\tablesweeper-1.1.2.jar;lib\jtds-1.2.jar;lib\c3p0-0.9.1.1.jar;lib\commons-dbutils-1.5.jar;lib\quartz-2.2.0.jar;lib\slf4j-api-1.7.5.jar;lib\slf4j-simple-1.7.5.jar;lib\ui-designer-core-1.jar tablesweeper.gui.MainFrame
+\ No newline at end of file
++jre\bin\java.exe -cp ;lib\tablesweeper-1.1.3.jar;lib\jtds-1.2.jar;lib\c3p0-0.9.1.1.jar;lib\commons-dbutils-1.5.jar;lib\quartz-2.2.0.jar;lib\slf4j-api-1.7.5.jar;lib\slf4j-simple-1.7.5.jar;lib\ui-designer-core-1.jar tablesweeper.gui.MainFrame
+\ No newline at end of file
+diff --git a/src/main/java/tablesweeper/gui/MainFrame.form b/src/main/java/tablesweeper/gui/MainFrame.form
+index 28b4883..46893d9 100644
+--- a/src/main/java/tablesweeper/gui/MainFrame.form
++++ b/src/main/java/tablesweeper/gui/MainFrame.form
+@@ -3,7 +3,7 @@
+   <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+     <margin top="10" left="10" bottom="10" right="10"/>
+     <constraints>
+-      <xy x="20" y="20" width="431" height="306"/>
++      <xy x="20" y="20" width="431" height="309"/>
+     </constraints>
+     <properties>
+       <enabled value="true"/>
+@@ -79,7 +79,7 @@
+         </constraints>
+         <properties>
+           <autoscrolls value="false"/>
+-          <editable value="false"/>
++          <editable value="true"/>
+           <model>
+             <item value="5"/>
+             <item value="10"/>
+diff --git a/src/main/java/tablesweeper/gui/MainFrame.java b/src/main/java/tablesweeper/gui/MainFrame.java
+index d552554..28f58a8 100644
+--- a/src/main/java/tablesweeper/gui/MainFrame.java
++++ b/src/main/java/tablesweeper/gui/MainFrame.java
+@@ -126,7 +126,7 @@ public class MainFrame {
+ 
+     private void createUIComponents() {
+         // TODO: place custom component creation code here
+-        frequencyField = new JComboBox(new Integer[]{5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60});
++        frequencyField = new JComboBox(new Integer[]{1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60});
+     }
+ 
+     /**
+@@ -166,7 +166,7 @@ public class MainFrame {
+         label4.setText("频率(分钟)");
+         panel.add(label4, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+         frequencyField.setAutoscrolls(false);
+-        frequencyField.setEditable(false);
++        frequencyField.setEditable(true);
+         panel.add(frequencyField, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+         tableNameField = new JTextArea();
+         tableNameField.setLineWrap(true);
